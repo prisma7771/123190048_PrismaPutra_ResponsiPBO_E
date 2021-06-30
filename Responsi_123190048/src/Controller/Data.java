@@ -1,5 +1,8 @@
 package Controller;
 
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
+
 public class Data {
    private String Judul;
    private Double alur,penokohan,akting,nilai;
@@ -14,6 +17,9 @@ public class Data {
  
     public Double HitungNilai (Double alur, Double penokohan, Double akting){
         nilai = (alur+penokohan+akting)/3;
+        DecimalFormat df = new DecimalFormat("#.##");
+        df.setRoundingMode(RoundingMode.DOWN);
+        nilai = Double.parseDouble(df.format(nilai));
         return  nilai;
     }
 
